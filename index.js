@@ -23,8 +23,7 @@ app.use((req, res, next) => {
 });
 
 // MongoDB connection
-const dbURI = "mongodb+srv://kimenyu:Boyfaded7552@cluster0.cbu4pnw.mongodb.net/nodeauth";
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         console.log("Connected to MongoDB");
         app.listen(port, () => {
@@ -34,7 +33,6 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .catch((err) => {
         console.error("Error connecting to MongoDB:", err);
     });
-
 
 
 
